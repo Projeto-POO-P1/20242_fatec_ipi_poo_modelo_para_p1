@@ -64,4 +64,10 @@ public class Personagem{
       nome, energia, fome, sono
     );  
   }
+  public int getenergia (){
+    return energia;
+  }
+  public void setEnergia(int energia) {
+    this.energia = energia;
+  }
 }

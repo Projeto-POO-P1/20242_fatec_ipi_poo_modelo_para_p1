@@ -21,6 +21,10 @@ public class Jogo{
             if (acao == 2){
                 player1.dormir();
             }
+            if (player1.getenergia() <= 0){
+                System.out.println("You Died");
+                break;
+            }
             System.out.println(player1); //mostra status player1
             System.out.println("****************************");
             Thread.sleep(5000); //espera 5 segundos para realizar proxima instrução
