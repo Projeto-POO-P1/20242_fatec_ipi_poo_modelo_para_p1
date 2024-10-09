@@ -1,25 +1,25 @@
 import java.util.Random;
-
+ 
 public class Personagem {
     String nome;
     private int energia;
     private int fome;
     private int sono;
-
+ 
     Personagem() {
         System.out.println("Construindo novo personagem");
         energia = 10;
         fome = 0;
         sono = 0;
     }
-
+ 
     Personagem(int energia, int fome, int sono) {
         System.out.println("Construindo novo personagem");
         this.energia = energia < 0 || energia > 10 ? 10 : energia;
         this.fome = fome >= 0 && fome <= 10 ? fome : 0;
         this.sono = sono >= 0 && sono <= 10 ? sono : 0;
     }
-
+ 
     static void exibirAnuncio() {
         String[] anuncios = {
             "Coca cola *anuncio da Coca cola*",
@@ -34,12 +34,12 @@ public class Personagem {
         int indice = gerador.nextInt(anuncios.length);
         System.out.println(anuncios[indice]);
         try {
-            Thread.sleep(30000); // Espera 30 segundos
+            Thread.sleep(7000); // Espera 7 segundos
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-
+ 
     void cacar() {
         if (energia >= 2) {
             System.out.printf("%s caçando\n", nome);
@@ -50,7 +50,7 @@ public class Personagem {
         if (fome < 10) fome = fome + 1;
         sono = sono == 10 ? sono : sono + 1;
     }
-
+ 
     void comer() {
         if (fome >= 1) {
             System.out.println(nome + " comendo");
@@ -60,7 +60,7 @@ public class Personagem {
             System.out.println(nome + " sem fome");
         }
     }
-
+ 
     void dormir() {
         if (sono >= 1) {
             System.out.print(nome + " dormindo\n");
@@ -70,7 +70,7 @@ public class Personagem {
             System.out.println(nome + " sem sono");
         }
     }
-
+ 
     void atacar(Personagem outro) {
         if (energia > 0 && outro.getenergia() > 0) { // Verifica se ambos os personagens estão vivos
             System.out.println(nome + " ataca " + outro.nome + "!");
@@ -85,15 +85,15 @@ public class Personagem {
             System.out.println(outro.nome + " já está morto.");
         }
     }
-
+ 
     public String toString() {
         return String.format("%s: e:%d, f:%d, s:%d", nome, energia, fome, sono);
     }
-
+ 
     public int getenergia() {
         return energia;
     }
-
+ 
     public void setEnergia(int energia) {
         this.energia = energia;
     }
